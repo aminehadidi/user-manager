@@ -1,0 +1,33 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
+   		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+	<changeSet id="01" author="Amine HADIDI">
+	 	<sql dbms="postgresql" endDelimiter=";">
+            CREATE SCHEMA if not exists user_manager
+        </sql>	
+		<comment>Tables creation</comment>
+		<createSequence incrementBy="1" sequenceName="user_seq"
+			startValue="1" schemaName="user_manager" />
+
+		<createTable tableName="user" schemaName="user_manager">
+			<column name="id" type="bigint" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true"
+					primaryKeyName="pk_user" />
+			</column>
+			<column name="first_name" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="last_name" type="VARCHAR(100)" />
+			<column name="email" type="VARCHAR(255)">
+				<constraints nullable="false" unique="true" />
+			</column>
+		</createTable>
+	</changeSet>
+
+
+
+</databaseChangeLog>

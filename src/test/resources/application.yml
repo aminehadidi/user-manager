@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: user-manager
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: user_manager
+  test:
+    database:
+      replace: none
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: dbTest/changelog.xml
+    contexts: test
+  web:
+    locale: french
+logging:
+  message:
+    basename: log_messages
+  info:
+    composant: SGIN Coeur
+    reference: 10100
+
+
+
+LOGGING_LEVEL: INFO
+SHOW_SQL: true
